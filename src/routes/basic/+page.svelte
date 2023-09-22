@@ -1,11 +1,14 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
+  import { getState } from '$lib/state';
 	
 	export let width = 300
 	export let height = 300
 	export let color = '#333'
 	export let background = '#ffa'
-	
+
+  let state = getState();
+
 	let canvas: HTMLCanvasElement
 	let context: CanvasRenderingContext2D
 	let isDrawing: boolean
@@ -56,6 +59,10 @@
 </script>
 
 <svelte:window on:resize={handleSize} />
+
+<h1>State: {state}</h1>
+<a href="/basic2">Go to basic2</a>
+<br/>
 
 <canvas
 				{width}
